@@ -61,15 +61,6 @@ export class ContentListComponent implements OnInit {
         imgURL: "https://cdn.akamai.steamstatic.com/steam/apps/1962663/capsule_616x353.jpg?t=1703006730",
         type: "Mobile and PC",
         tags: ["Battle", "COD"]
-      },
-      {
-        id: 5,
-        title: "San andreas",
-        description: "A game with lot of missions and wondefyl features",
-        creator: "Carl Johnson",
-        imgURL: "https://tm.ibxk.com.br/2018/10/26/26190359852307.jpg?ims=1200x675",
-        type: "PC",
-        tags: ["Vicecity", "Missions"]
       }
       
     ];
