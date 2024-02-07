@@ -9,3 +9,29 @@
     padding: 15px;
     margin: 20px;
   }
+
+  h1{
+    background-color: blue;
+  }
+
+  h1:nth-of-type(2){
+    background-color: red;
+  }
+
+  h1:last-of-type{
+   background-color: green;
+  }
+
+  section{
+    background-color: aqua;
+    color: darkgreen;
+  }
+  section:nth-of-type(2){
+    background-color:purple;
+    color:yellowgreen;
+  }
+  section:last-of-type{
+    background-color:gray;
+    color: black;
+  }
+

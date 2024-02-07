@@ -1,19 +1,34 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
+import { ContentCardComponent } from '../content-card/content-card.component';
+import { TypedeciderPipe } from '../typedecider.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ContentCardComponent, TypedeciderPipe, FormsModule],
   templateUrl: './content-list.component.html',
   styleUrl: './content-list.component.scss'
 })
 export class ContentListComponent implements OnInit {
-  displayContentInfo(contentItem: Content) {
+  DisplayContentInformation(contentItem: Content) {
     console.log(`ID: ${contentItem.id} and Title: ${contentItem.title}`);
     }
   @Input () contentItems: Content[] = [];
+
+  searchTitle: string = '';
+  contentExists: boolean = false;
+  message: string = '';  
+  selectedTitle: string | null = null;
+
+  checkContentExists() {
+    const foundItem = this.contentItems.find(item => item.title.toLowerCase() === this.searchTitle.toLowerCase());
+    this.contentExists = !!foundItem;
+    this.message = foundItem ? 'Content item exists.' : 'Content item does not exist.';
+    this.selectedTitle = foundItem ? foundItem.title : null;
+  }
 
   ngOnInit(): void {
     this.contentItems =[
@@ -59,8 +74,25 @@ export class ContentListComponent implements OnInit {
         description: "Game which includes gun fights and battle royale",
         creator: "Usman firoz",
         imgURL: "https://cdn.akamai.steamstatic.com/steam/apps/1962663/capsule_616x353.jpg?t=1703006730",
-        type: "Mobile and PC",
+        type: "Mobile",
         tags: ["Battle", "COD"]
+      },
+      {
+        id: 5,
+        title: "Valorant",
+        description: "Game with some animations and fight.",
+        creator: "Faruk Miya",
+        imgURL: "https://assetsio.reedpopcdn.com/valorant-jett-and-phoenix-wallpaper-b.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp",
+        type: "PC",
+        tags: ["Valo", "Animation"]
+      },{
+        id: 6,
+        title: "Ludo",
+        description: "4 player game with 4 troops each player.",
+        creator: "Randy",
+        imgURL: "https://i.etsystatic.com/23830428/r/il/8fc5e5/3078308490/il_570xN.3078308490_f0je.jpg",
+        type: "",
+        tags: ["Winner", "ludo"]
       }
       
     ];
