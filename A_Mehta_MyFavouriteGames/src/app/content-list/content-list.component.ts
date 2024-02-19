@@ -4,11 +4,12 @@ import { Content } from '../helper-files/content-interface';
 import { ContentCardComponent } from '../content-card/content-card.component';
 import { TypedeciderPipe } from '../typedecider.pipe';
 import { FormsModule } from '@angular/forms';
+import { HoverAffectDirective } from '../hover-affect.directive';
 
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [CommonModule, ContentCardComponent, TypedeciderPipe, FormsModule],
+  imports: [CommonModule, ContentCardComponent, TypedeciderPipe, FormsModule, HoverAffectDirective],
   templateUrl: './content-list.component.html',
   styleUrl: './content-list.component.scss'
 })
@@ -82,7 +83,7 @@ export class ContentListComponent implements OnInit {
         title: "Valorant",
         description: "Game with some animations and fight.",
         creator: "Faruk Miya",
-        imgURL: "https://assetsio.reedpopcdn.com/valorant-jett-and-phoenix-wallpaper-b.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp",
+        imgURL: "",
         type: "PC",
         tags: ["Valo", "Animation"]
       },{
